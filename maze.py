@@ -1,9 +1,11 @@
+#%%
 import numpy as np
 import matplotlib.pyplot as plt
 #%matplotlib inline
 from matplotlib import animation
 from IPython.display import HTML
 
+#%%
 fig = plt.figure(figsize=(3,3))
 
 plt.plot([0, 3], [3, 3], color='k')
@@ -25,7 +27,7 @@ plt.tick_params(axis='both', which='both', bottom='off', top='off',
         labelbottom='off', right='off', left='off', labelleft='off')
 plt.box('off')
 
-
+#%%
 theta_0 = np.array([
     [np.nan, 1, 1, np.nan],
     [np.nan, 1, 1, 1],
@@ -36,6 +38,7 @@ theta_0 = np.array([
     [1, 1, np.nan, np.nan],
     [np.nan, np.nan, np.nan, 1]])
 
+#%%
 def get_pi(theta):
     [m, n] = theta.shape
     pi = np.zeros((m, n))
@@ -44,3 +47,7 @@ def get_pi(theta):
         pi[i, :] = exp_theta[i, :] / np.nansum(exp_theta[i, :])
     pi = np.nan_to_num(pi)
     return pi
+
+#%%
+def get_a(pi, s):
+    return np.random.choice([0, 1, 2, 3], p=pi[s])
