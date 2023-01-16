@@ -51,3 +51,13 @@ def get_pi(theta):
 #%%
 def get_a(pi, s):
     return np.random.choice([0, 1, 2, 3], p=pi[s])
+
+def get_s_next(s, a):
+    if a == 0:
+        return s - 3
+    elif a == 1:
+        return s + 1
+    elif a == 2:
+        return s + 3
+    elif a == 3:
+        return s - 1
